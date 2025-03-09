@@ -4,9 +4,10 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useNavigate,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-
+import { useEffect } from "react";
 import "./tailwind.css";
 
 export const links: LinksFunction = () => [
@@ -28,6 +29,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="view-transition" content="same-origin" />
         <Meta />
         <Links />
       </head>
@@ -41,5 +43,39 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a');
+      if (!anchor) return;
+      
+      const href = anchor.getAttribute('href');
+      if (
+        href && 
+        href.startsWith('/') && 
+        anchor.target !== '_blank' && 
+        !e.ctrlKey && 
+        !e.metaKey && 
+        !e.altKey && 
+        !e.shiftKey && 
+        e.button === 0
+      ) {
+        e.preventDefault();
+        if (document.startViewTransition) {
+          document.startViewTransition(() => {
+            navigate(href);
+          });
+        } else {
+          navigate(href);
+        }
+      }
+    };
+
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, [navigate]);
+
   return <Outlet />;
 }
