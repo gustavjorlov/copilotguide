@@ -8,6 +8,7 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import { useEffect } from "react";
+import { Breadcrumbs } from "./components/Breadcrumbs";
 import "./tailwind.css";
 
 export const links: LinksFunction = () => [
@@ -77,5 +78,12 @@ export default function App() {
     return () => document.removeEventListener('click', handleClick);
   }, [navigate]);
 
-  return <Outlet />;
+  return (
+    <div>
+      <div className="max-w-4xl mx-auto px-4 pt-4">
+        <Breadcrumbs />
+      </div>
+      <Outlet />
+    </div>
+  );
 }

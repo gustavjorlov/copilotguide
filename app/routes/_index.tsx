@@ -17,27 +17,27 @@ export default function Index() {
             Master GitHub Copilot Agent Mode
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 text-center max-w-2xl">
-            Unlock the full potential of AI-powered development with GitHub Copilot's agent mode - 
+            Unlock the full potential of AI-powered development with GitHub Copilot's agent mode -
             your intelligent coding companion that understands context and helps you write better code.
           </p>
         </header>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16" style={{ viewTransitionName: 'features-grid' }}>
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm animate-slideInLeft [animation-delay:200ms]">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
             <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Context-Aware</h3>
             <p className="text-gray-600 dark:text-gray-300">Understands your entire codebase and project structure for more accurate suggestions</p>
           </div>
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm animate-slideInLeft [animation-delay:400ms]">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
             <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Interactive</h3>
             <p className="text-gray-600 dark:text-gray-300">Engage in meaningful dialogue about your code and receive intelligent responses</p>
           </div>
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm animate-slideInLeft [animation-delay:600ms]">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
             <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Proactive</h3>
             <p className="text-gray-600 dark:text-gray-300">Suggests improvements and identifies potential issues before they become problems</p>
           </div>
         </div>
 
-        <div className="flex justify-center animate-fadeIn [animation-delay:800ms]" style={{ viewTransitionName: 'cta-button' }}>
+        <div className="flex justify-center" style={{ viewTransitionName: 'cta-button' }}>
           <Link
             to="/agent"
             className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
